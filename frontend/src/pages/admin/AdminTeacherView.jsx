@@ -1,7 +1,38 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function AdminTeacherView() {
+  const [teacher , setTeacher] = useState()
+
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/teacher/getAll_teacher")
+    .then(res=>{
+      console.log(res)
+      setTeacher(res.data)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }, [])
+
+  const handleDelete=async(id)=>{
+    const confirmDelete = window.confirm(`are you delete this ${id}`)
+    if(confirmDelete){
+      await axios.delete(`http://localhost:3001/teacher/delete_teacherDetails/${id}`)
+      .then(res=>{
+        console.log(res)  
+        window.location.reload()
+        alert("delete successfully")     
+      }).catch(err=>{
+        console.log(err);        
+      })
+    }
+  }
+  
+
+
   return (
     <div className='bg-blue-800 h-screen'>
       <div>
@@ -30,39 +61,21 @@ function AdminTeacherView() {
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+
+              {teacher && teacher.map((item , index)=>(
+                <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                  Dr. R.K Sinha
+                  {item.name}
                 </th>
-                <td className="px-6 py-4">rksinha@gmail.com</td>
-                <td className="px-6 py-4"><Link to='/' className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
-                <td className="px-6 py-4"><button className="bg-blue-600 text-white px-4 py-2 rounded-lg" > Delete</button></td>
+                <td className="px-6 py-4">{item.email}</td>
+                <td className="px-6 py-4"><Link to={`/admin_dashboard/admin_teacherView/edit_teacher/${item._id}`} className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
+                <td className="px-6 py-4"><button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={(e)=>handleDelete(item._id)}> Delete</button></td>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Dr.YP Singh
-                </th>
-                <td className="px-6 py-4">White</td>
-                <td className="px-6 py-4"><Link to='/' className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
-                <td className="px-6 py-4"><button className="bg-blue-600 text-white px-4 py-2 rounded-lg" > Delete</button></td>
-              </tr>
-              <tr className="bg-white dark:bg-gray-800">
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                >
-                  Dr. SS Shakya
-                </th>
-                <td className="px-6 py-4">Black</td>
-                <td className="px-6 py-4"><Link to='/admin_dashboard/admin_teacherView/edit_teacher' className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
-                <td className="px-6 py-4"><button className="bg-blue-600 text-white px-4 py-2 rounded-lg" > Delete</button></td>
-              </tr>
+              ))}
             </tbody>
           </table>
         </div>

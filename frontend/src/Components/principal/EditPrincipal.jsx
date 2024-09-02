@@ -32,6 +32,7 @@ function EditPrincipal() {
           console.log(res)
           alert("data update")
           navigate('/admin_dashboard/admin_principalView')
+        }).catch(err=>{console.log(err);
         })
     }
     

@@ -16,6 +16,13 @@ import AdminLogin from './pages/login/AdminLogin'
 import PrincipalDashboard from './pages/principal/PrincipalDashboard'
 import CreateTeacher from './Components/teacher/CreateTeacher'
 import EditTeacher from './Components/teacher/EditTeacher'
+import CreateStudent from './Components/student/CreateStudent'
+import EditStudent from './Components/student/EditStudent'
+import TeacherDashboard from './pages/teacher/TeacherDashboard'
+import AdminProtectedRoutes from './Components/protected_routes/AdminProtectedRoutes'
+import PrincipalProtectedRoutes from './Components/protected_routes/PrincipalProtectedRoutes'
+import PrincipalTeacherView from './pages/principal/PrincipalTeacherView'
+import PrincipalStudentView from './pages/principal/PrincipalStudentView'
 
 function App() {
 
@@ -35,26 +42,48 @@ function App() {
 
       <Route path='/dashboard' element={<Dashboard/>}/>
 
+
+
       {/* admin routes /////////////////////////////////////////////////////////////////////////////ijj*/}
-      <Route path='/admin_dashboard' element={<AdminDashboard/>}/>
+      <Route path='/admin_dashboard' element={<AdminProtectedRoutes><AdminDashboard/></AdminProtectedRoutes>}/>
                   {/* admin view */}
-            <Route path='/admin_dashboard/admin_principalView' element={<AdminPrincipalView/>}/>
-            <Route path='/admin_dashboard/admin_teacherView' element={<AdminTeacherView/>}/>
-            <Route path='/admin_dashboard/admin_studentView' element={<AdminStudentView/>}/>
+            <Route path='/admin_dashboard/admin_principalView' element={<AdminProtectedRoutes><AdminPrincipalView/></AdminProtectedRoutes>}/>
+            <Route path='/admin_dashboard/admin_teacherView' element={<AdminProtectedRoutes><AdminTeacherView/></AdminProtectedRoutes>}/>
+            <Route path='/admin_dashboard/admin_studentView' element={<AdminProtectedRoutes><AdminStudentView/></AdminProtectedRoutes>}/>
             {/* //////////////////////////// */}
                                     {/* principal operation */}
-                           <Route path='/admin_dashboard/admin_principalView/create_principal' element={<CreatePrincipal/>}/>
-                           <Route path='/admin_dashboard/admin_principalView/edit_principal/:id' element={<EditPrincipal/>}/>
+                           <Route path='/admin_dashboard/admin_principalView/create_principal' element={<AdminProtectedRoutes><CreatePrincipal/></AdminProtectedRoutes>}/>
+                           <Route path='/admin_dashboard/admin_principalView/edit_principal/:id' element={<AdminProtectedRoutes><EditPrincipal/></AdminProtectedRoutes>}/>
                                      {/* ////////////////////// */}
 
-                            {/*   Teacher operation/////////// */}
-                            <Route path='/admin_dashboard/admin_teacherView/create_teacher' element={<CreateTeacher/>}/>
-                            <Route path='/admin_dashboard/admin_teacherView/edit_teacher' element={<EditTeacher/>}/>
-                            {/* ////////////////////////////////// */}
+                                      {/*   Teacher operation/////////// */}
+                            <Route path='/admin_dashboard/admin_teacherView/create_teacher' element={<AdminProtectedRoutes><CreateTeacher/></AdminProtectedRoutes>}/>
+                            <Route path='/admin_dashboard/admin_teacherView/edit_teacher/:id' element={<AdminProtectedRoutes><EditTeacher/></AdminProtectedRoutes>}/>
+                                     {/* ////////////////////////////////// */}
+                                     {/* Student operations */}
+                           <Route path='/admin_dashboard/admin_studentView/create_student' element={<AdminProtectedRoutes><CreateStudent/></AdminProtectedRoutes>}/>
+                           <Route path='/admin_dashboard/admin_studentView/edit_student/:id' element={<AdminProtectedRoutes><EditStudent/></AdminProtectedRoutes>}/>
+                                     {/* //////////////////// */}
       {/* /////////////////// /////////////////////////////////////////////////////////////////////////*/}
 
+
+
+
+
       {/* Principal Routes/////////////////////////////////////////////////////////////////////////////*/}
-      <Route path='/principal_dashboard' element={<PrincipalDashboard/>}/>
+      <Route path='/principal_dashboard' element={<PrincipalProtectedRoutes><PrincipalDashboard/></PrincipalProtectedRoutes>}/>
+                                {/* //////////principal Views////////////// */}
+                 <Route path='/principal_dashboard/principal_teacher_view' element={<PrincipalProtectedRoutes><PrincipalTeacherView/></PrincipalProtectedRoutes>}/>
+                 <Route path='/principal_dashboard/principal_student_view' element={<PrincipalProtectedRoutes><PrincipalStudentView/></PrincipalProtectedRoutes>}/>
+
+      {/* //////////////////////////////////////////////////////////////////////////////////////////// */}
+
+
+
+      {/* Teacher Routes////////////////////////////////////////////////////////////////////////////// */}
+      <Route path='/teacher_dashboard' element={<TeacherDashboard/>}/>
+      {/* //////////////////////////////////////////////////////////////////////////////////////////// */}
+
 
 
 

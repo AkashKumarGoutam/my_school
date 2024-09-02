@@ -1,9 +1,26 @@
+import axios from 'axios'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function AdminDashboard() {
+  const navigate = useNavigate();
+  const handleLogout = ()=>{
+    axios.get("http://localhost:3001/api/logout")
+    .then(res=>{
+      console.log(res.data.status)
+      if(res.data.status){
+        navigate("/admin_login")
+      }
+    })
+    .catch(err=>{
+      console.log(err)
+    })
+  }
   return (
     <div className="bg-gray-900 py-48">
+      <div className='flex justify-end pr-20'>
+        <button className='text-2xl bg-white font-semibold w-28 h-10 flex items-center justify-center rounded-lg' onClick={handleLogout}>Logout</button>
+      </div>
 
       <div className='text-white font-semibold flex flex-col justify-center items-center'>
       <h1 className='text-3xl'>Hello Admin</h1>

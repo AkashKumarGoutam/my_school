@@ -1,95 +1,17 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function PrincipalDashboard() {
-  const [allClasses, setAllClasses] = useState([]);
-  const [allTeachers, setAllTeachers] = useState([]);
-  const [selectedClass, setSelectedClass] = useState("");
-  const [selectedTeacher, setSelectedTeacher] = useState("");
-
-  // Fetch available classes and teachers
-  useEffect(() => {
-    axios
-      .get("http://localhost:3001/timetable/get_available_classes_teachers")
-      .then((res) => {
-        setAllClasses(res.data.availableClasses);
-        setAllTeachers(res.data.availableTeachers);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [selectedClass, selectedTeacher]); // Re-fetch available options after selection
-
-  const handleClassChange = (e) => {
-    setSelectedClass(e.target.value);
-  };
-
-  const handleTeacherChange = (e) => {
-    setSelectedTeacher(e.target.value);
-  };
-
-  const handleCreateClassesAndTeacher = async (e) => {
-    e.preventDefault();
-
-    if (!selectedClass || !selectedTeacher) {
-      alert("Please select both a class and a teacher.");
-      return;
-    }
-
-    try {
-      const response = await axios.post("http://localhost:3001/timetable/assign_classes", {
-        classes: selectedClass,
-        teachers: selectedTeacher,
-      });
-
-      console.log(response);
-      alert("Timetable created successfully!");
-
-      // Remove selected class and teacher from the lists
-      setAllClasses(allClasses.filter((item) => item.classesName !== selectedClass));
-      setAllTeachers(allTeachers.filter((item) => item.name !== selectedTeacher));
-
-      setSelectedClass("");
-      setSelectedTeacher("");
-    } catch (err) {
-      console.error(err);
-      alert("Failed to create timetable. Please try again.");
-    }
-  };
-
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    axios.get("http://localhost:3001/api/logout")
-      .then((res) => {
-        if (res.data.status) {
-          navigate("/principal_login");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-
+function TeacherDashboard() {
   return (
     <div className="bg-gray-900 py-20">
-      <div className='flex justify-end pr-20'>
-        <button className='text-2xl bg-white font-semibold w-28 h-10 flex items-center justify-center rounded-lg' onClick={handleLogout}>Logout</button>
-      </div>
       <div className="text-white font-semibold flex flex-col justify-center items-center">
-        <h1 className="text-3xl">Hello Principal</h1>
+        <h1 className="text-3xl">Hello Teacher</h1>
         <h1 className="text-md underline"> All Data here</h1>
       </div>
       <div className="flex justify-center gap-10 py-8">
+       
         <Link
-          to="/principal_dashboard/principal_teacher_view"
-          className="px-6 py-2 shadow rounded-xl bg-white text-2xl font-semibold"
-        >
-          Teacher
-        </Link>
-        <Link
-          to="/principal_dashboard/principal_student_view"
+          to="/admin_dashboard/admin_studentView"
           className="px-6 py-2 shadow rounded-xl bg-white text-2xl font-semibold"
         >
           Student
@@ -107,22 +29,13 @@ function PrincipalDashboard() {
                 <label className="block mb-1 text-sm text-slate-800  text-gray-600 text-xl font-semibold">
                   Classes
                 </label>
-
-
                 <div className="relative">
-                <select
-                    className="w-full bg-white rounded-xl h-10 placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
-                    value={selectedClass}
-                    onChange={handleClassChange}
-                  >
-                    <option value="" disabled>Select Class</option>
-                    {allClasses && allClasses.map((item , index) => (
-                      <option key={index}>{item.classesName}</option>
-                    ))}
+                  <select className="w-full bg-white rounded-xl h-10 placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
+                    <option value="brazil">Brazil</option>
+                    <option value="bucharest">Bucharest</option>
+                    <option value="london">London</option>
+                    <option value="washington">Washington</option>
                   </select>
-
-
-
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -145,15 +58,11 @@ function PrincipalDashboard() {
                   Teachers
                 </label>
                 <div className="relative">
-                <select
-                    className="w-full bg-white rounded-xl h-10 placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
-                    value={selectedTeacher}
-                    onChange={handleTeacherChange}
-                  >
-                    <option value="" disabled>Select Teacher</option>
-                    {allTeachers && allTeachers.map((item , index) => (
-                      <option key={index}>{item.name}</option>
-                    ))}
+                  <select className="w-full bg-white rounded-xl h-10 placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
+                    <option value="brazil">Brazil</option>
+                    <option value="bucharest">Bucharest</option>
+                    <option value="london">London</option>
+                    <option value="washington">Washington</option>
                   </select>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +83,7 @@ function PrincipalDashboard() {
             </div>
 
             <div className="flex justify-center py-4">
-              <button className="bg-gray-800 text-white px-6 py-2 rounded " onClick={handleCreateClassesAndTeacher}>Create</button>
+              <button className="bg-gray-800 text-white px-6 py-2 rounded">Create</button>
             </div>
           </div>
         </div>
@@ -274,7 +183,7 @@ function PrincipalDashboard() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default PrincipalDashboard;
+export default TeacherDashboard
