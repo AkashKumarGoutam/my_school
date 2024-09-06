@@ -2,8 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function PrincipalStudentView() {
-    
+
+function TeacherStudentView() {
+        
   const [student , setStudent]= useState()
 
 
@@ -39,7 +40,7 @@ function PrincipalStudentView() {
     <div>
       <div className="container mx-auto py-8 relative overflow-x-auto">
         <div className='p-6'>
-        <Link to="/principal_dashboard/principal_student_view/create_student" className='bg-green-500 px-6 py-1 rounded-lg text-white' >ADD</Link>
+        <Link to="/teacher_dashboard/student_view/create_student" className='bg-green-500 px-6 py-1 rounded-lg text-white' >ADD</Link>
         </div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -73,7 +74,7 @@ function PrincipalStudentView() {
                     </th>
                     <td className="px-6 py-4">{item.email}</td>
                     <td className="px-6 py-4">{item.classes}</td>
-                    <td className="px-6 py-4"><Link to={`/principal_dashboard/principal_student_view/edit_student/${item._id}`} className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
+                    <td className="px-6 py-4"><Link to={`/teacher_dashboard/student_view/edit_student/${item._id}`} className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
                     <td className="px-6 py-4"><button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={(e)=>handleDelete(item._id)} > Delete</button></td>
                   </tr>
             ))}              
@@ -85,4 +86,4 @@ function PrincipalStudentView() {
   )
 }
 
-export default PrincipalStudentView
+export default TeacherStudentView

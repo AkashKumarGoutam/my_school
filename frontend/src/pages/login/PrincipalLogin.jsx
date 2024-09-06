@@ -16,10 +16,11 @@ function PrincipalLogin() {
       .post("http://localhost:3001/api/principal_login", { email, password })
       .then((res) => {
         if (res.status === 200) {  // Ensure successful login
+          localStorage.setItem("principalEmail" , res.data.email)
           navigate("/principal_dashboard");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
   };
 
   

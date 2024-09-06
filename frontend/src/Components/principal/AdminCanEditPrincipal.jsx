@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function EditPrincipal() {
+function AdminCanEditPrincipal() {
     const {id} =useParams();
     const [name , setName] = useState("")
     const [email , setEmail] = useState("")
@@ -38,8 +38,8 @@ function EditPrincipal() {
     
     
   return (
-    <div className="bg-blue-800 h-screen">
-      <div className="flex justify-center items-center pt-32">
+    <div className="bg-gray-900">
+      <div className="flex justify-center items-center py-32">
         <div className="bg-gray-200 rounded-lg ">
           <h1 className="text-xl font-semibold flex justify-center underline py-2 pb-6">
             Edit Principal Details
@@ -119,4 +119,4 @@ function EditPrincipal() {
   );
 }
 
-export default EditPrincipal;
+export default AdminCanEditPrincipal;

@@ -8,6 +8,7 @@ const TeacherRoutes = require("./routes/TeacherRoutes")
 const StudentRoutes = require("./routes/StudentRoutes")
 const ClassroomRoutes = require("./routes/ClassroomRoutes")
 const assignClassesRoutes = require("./routes/AssignClassesRoutes")
+const adminRoutes = require("./routes/adminRoutes")
 const cookieParser = require("cookie-parser")
 dotenv.config()
 const app = express()
@@ -24,6 +25,7 @@ connectDB();
 
 //set Routes
 app.use("/api" , authRoutes)
+app.use("/admin" , adminRoutes)
 app.use("/principal" , PricipalRoute)
 app.use("/teacher" , TeacherRoutes)
 app.use("/student" , StudentRoutes)

@@ -2,49 +2,48 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
-function EditTeacher() {
-  const {id}= useParams()
+function PrincipalCanEditTeacher() {
+    const {id}= useParams()
 
-  const [name , setName] = useState("")
-  const [email , setEmail] = useState("")
-  const [password , setPassword] = useState("")
-  const [age , setAge] = useState("")
-  const [number , setNumber] = useState("")
-  const navigate = useNavigate()
-
-
-  useEffect(() => {
-   axios.get(`http://localhost:3001/teacher/get_TeacherDetail/${id}`)
-   . then(res=>{
-    console.log(res);
-    setName(res.data.name)
-    setEmail(res.data.email)
-    setPassword(res.data.password)
-    setAge(res.data.age)
-    setNumber(res.data.number)
-  }).catch(err=>{
-    console.log(err);
-    
-  })
-  }, [])
+    const [name , setName] = useState("")
+    const [email , setEmail] = useState("")
+    const [password , setPassword] = useState("")
+    const [age , setAge] = useState("")
+    const [number , setNumber] = useState("")
+    const navigate = useNavigate()
   
-
-  const handleSubmit = async(e)=>{
-    e.preventDefault()
-    await axios.put(`http://localhost:3001/teacher/update_TeacherDetails/${id}`, {name , email , password , age , number})
-    .then(res=>{
+  
+    useEffect(() => {
+     axios.get(`http://localhost:3001/teacher/get_TeacherDetail/${id}`)
+     . then(res=>{
       console.log(res);
-      alert("edit data successfully")
-      navigate("/admin_dashboard/admin_teacherView")
+      setName(res.data.name)
+      setEmail(res.data.email)
+      setPassword(res.data.password)
+      setAge(res.data.age)
+      setNumber(res.data.number)
     }).catch(err=>{
       console.log(err);
+      
     })
-   
-  }
-
+    }, [])
+    
+  
+    const handleSubmit = async(e)=>{
+      e.preventDefault()
+      await axios.put(`http://localhost:3001/teacher/update_TeacherDetails/${id}`, {name , email , password , age , number})
+      .then(res=>{
+        console.log(res);
+        alert("edit data successfully")
+        navigate("/admin_dashboard/admin_teacherView")
+      }).catch(err=>{
+        console.log(err);
+      })
+     
+    }
   return (
-    <div className="bg-blue-800 h-screen">
-    <div className="flex justify-center items-center pt-32">
+    <div className="bg-gray-900">
+    <div className="flex justify-center items-center py-32">
       <div className="bg-gray-200 rounded-lg ">
         <h1 className="text-xl font-semibold flex justify-center underline py-2 pb-6">
           Edit Teacher Details
@@ -124,4 +123,4 @@ function EditTeacher() {
   )
 }
 
-export default EditTeacher
+export default PrincipalCanEditTeacher

@@ -27,7 +27,7 @@ function AdminLogin() {
     
     return (
       <div>
-        <div className="p-20 bg-gray-900 h-screen">
+        <div className="p-20 bg-gray-900 ">
           <div className="flex justify-center items-center p-10">
             <form
               className="flex flex-col border-2 p-10 bg-gray-200 rounded-xl"

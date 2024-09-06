@@ -1,12 +1,35 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function StudentLogin() {
+
+  
+  const[email , setEmail]=useState("")
+  const[password , setPassword]=useState("")
+  const navigate = useNavigate()
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    await axios.post("http://localhost:3001/api/student_login" , {email , password}) 
+    .then(res=>{
+      console.log(res)
+      localStorage.setItem("studentEmail" , res.data.email)
+      alert("hello student")
+      navigate("/student_dashboard")
+    }).catch(err=>{
+      console.log(err) 
+    })
+  }
+
+
+
   return (
-    <div className="p-20 bg-gray-900 h-screen">
+    <div className="p-20 bg-gray-900 ">
     <div className="flex justify-center items-center p-10">
       <form
         className="flex flex-col border-2 p-10 bg-gray-200 rounded-xl"
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       >
         <h1 className="text-2xl font-semibold flex justify-center pb-6 items-center">
           Student Login

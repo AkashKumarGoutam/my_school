@@ -34,12 +34,12 @@ function AdminTeacherView() {
 
 
   return (
-    <div className='bg-blue-800 h-screen'>
+    <div className='bg-gray-900'>
       <div>
-        <h1 className='text-4xl font-semibold text-white  flex justify-center underline pt-20'>Teacher</h1>
+        <h1 className='text-4xl font-semibold text-white  flex justify-center underline pt-8'>Teacher</h1>
       </div>
       <div>
-        <div className="container mx-auto pt-20 relative overflow-x-auto">
+        <div className="container mx-auto py-8 relative overflow-x-auto">
           <div className='p-6'>
           <Link to="/admin_dashboard/admin_teacherView/create_teacher" className='bg-green-500 px-6 py-1 rounded-lg text-white' >ADD</Link>
           </div>

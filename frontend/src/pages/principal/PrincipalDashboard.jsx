@@ -7,6 +7,15 @@ function PrincipalDashboard() {
   const [allTeachers, setAllTeachers] = useState([]);
   const [selectedClass, setSelectedClass] = useState("");
   const [selectedTeacher, setSelectedTeacher] = useState("");
+  const [timetables , setTimetable]= useState();
+  const [principalEmail, setPrincipalEmail] = useState("");
+
+  ///get principal email 
+  useEffect(() => {
+    // Get the email from local storage
+    const email = localStorage.getItem("principalEmail");
+    setPrincipalEmail(email);
+  }, []);
 
   // Fetch available classes and teachers
   useEffect(() => {
@@ -21,6 +30,20 @@ function PrincipalDashboard() {
       });
   }, [selectedClass, selectedTeacher]); // Re-fetch available options after selection
 
+
+  // Fetch after create classes or time table
+  useEffect(() => {
+    axios.get("http://localhost:3001/timetable/get_all_created_timetable")
+    .then(res=>{
+      console.log(res);
+      setTimetable(res.data)
+    }).catch(err=>{
+      console.log(err);      
+    })
+  }, [selectedClass, selectedTeacher])
+  
+
+
   const handleClassChange = (e) => {
     setSelectedClass(e.target.value);
   };
@@ -29,20 +52,19 @@ function PrincipalDashboard() {
     setSelectedTeacher(e.target.value);
   };
 
+
+
   const handleCreateClassesAndTeacher = async (e) => {
     e.preventDefault();
-
     if (!selectedClass || !selectedTeacher) {
       alert("Please select both a class and a teacher.");
       return;
     }
-
     try {
       const response = await axios.post("http://localhost:3001/timetable/assign_classes", {
         classes: selectedClass,
         teachers: selectedTeacher,
       });
-
       console.log(response);
       alert("Timetable created successfully!");
 
@@ -63,6 +85,7 @@ function PrincipalDashboard() {
     axios.get("http://localhost:3001/api/logout")
       .then((res) => {
         if (res.data.status) {
+          localStorage.removeItem("principalEmail");
           navigate("/principal_login");
         }
       })
@@ -74,7 +97,8 @@ function PrincipalDashboard() {
 
   return (
     <div className="bg-gray-900 py-20">
-      <div className='flex justify-end pr-20'>
+      <div className='flex justify-end items-center pr-20'>
+         <h1 className='text-white text-lg font-semibold px-6'>USER :- {principalEmail} </h1>
         <button className='text-2xl bg-white font-semibold w-28 h-10 flex items-center justify-center rounded-lg' onClick={handleLogout}>Logout</button>
       </div>
       <div className="text-white font-semibold flex flex-col justify-center items-center">
@@ -179,97 +203,14 @@ function PrincipalDashboard() {
           </div>
         </div>
         <div className="w-[50%] bg-gray-400 flex gap-4 p-4 flex-wrap">
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
-          <div className="flex">
-            <div className="bg-black text-white w-32 h-16 flex flex-col justify-center items-center rounded">
-              <h1 className="text-xl font-semibold">class</h1>
-              <h1 className="text-yellow-400">Teacher</h1>
-            </div>
-          </div>
+          {timetables && timetables.map((item , index)=>(
+                 <div key={index} className="flex">
+                 <div className="bg-black flex flex-col w-56 justify-center items-center rounded">
+                   <h1 className="text-xl text-white font-semibold">{item.classes}</h1>
+                   <h1 className="text-yellow-400">{item.teachers}</h1>
+                 </div>
+               </div>
+          ))}
           
         </div>
       </div>

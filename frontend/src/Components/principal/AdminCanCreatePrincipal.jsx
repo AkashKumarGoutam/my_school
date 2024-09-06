@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function CreatePrincipal() {
+function AdminCanCreatePrincipal() {
     const [name , setName] = useState("")
     const [email , setEmail] = useState("")
     const [password , setPassword] = useState("")
@@ -22,8 +22,8 @@ function CreatePrincipal() {
         .catch(err=>{console.log(err)})
     }
   return (
-    <div className="bg-blue-800 h-screen">
-      <div className="flex justify-center items-center pt-32">
+    <div className="bg-gray-900">
+      <div className="flex justify-center items-center py-32">
       <div className="bg-gray-200 rounded-lg ">
         <h1 className="text-xl font-semibold flex justify-center underline py-2 pb-6">Add New Principal</h1>
         <div>
@@ -59,4 +59,4 @@ function CreatePrincipal() {
   );
 }
 
-export default CreatePrincipal;
+export default AdminCanCreatePrincipal;

@@ -33,14 +33,14 @@ function AdminPrincipalView() {
 
   
   return (
-    <div className="bg-blue-800 pb-10">
+    <div className="bg-gray-900 pb-10">
       <div>
-        <h1 className="text-4xl font-semibold text-white flex justify-center underline pt-10">
+        <h1 className="text-4xl font-semibold text-white flex justify-center underline pt-8">
           Principal
         </h1>
       </div>
       <div>
-        <div className="container mx-auto pt-10 relative overflow-x-auto">
+        <div className="container mx-auto pt-8 relative overflow-x-auto">
           <div className="p-6">
             <Link
               to="/admin_dashboard/admin_principalView/create_principal"

@@ -51,4 +51,13 @@ router.get("/get_available_classes_teachers", async (req, res) => {
     }
 });
 
+///get all data from created timetable og assignclasses model 
+router.get("/get_all_created_timetable" , async(req , res)=>{
+    try {
+        const timetables = await assignClassesModel.find({})
+        res.status(200).json(timetables)
+    } catch (error) {
+        res.status(500).send({messsage:"fetching error"})        
+    }
+})
 module.exports = router

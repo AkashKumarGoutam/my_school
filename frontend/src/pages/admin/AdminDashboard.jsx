@@ -1,9 +1,25 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 function AdminDashboard() {
   const navigate = useNavigate();
+  const[admin , setAdmin]=useState()
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/admin/show_admin')
+      .then(res => {
+        if (res.data.length > 0) {
+          console.log(res.data[0].email);
+          setAdmin(res.data[0].email); // Access the first admin's email
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, [])
+
+
   const handleLogout = ()=>{
     axios.get("http://localhost:3001/api/logout")
     .then(res=>{
@@ -18,7 +34,8 @@ function AdminDashboard() {
   }
   return (
     <div className="bg-gray-900 py-48">
-      <div className='flex justify-end pr-20'>
+      <div className='flex items-center justify-end pr-20'>
+         <h1 className='text-white text-lg font-semibold px-6'>USER :- {admin}</h1>
         <button className='text-2xl bg-white font-semibold w-28 h-10 flex items-center justify-center rounded-lg' onClick={handleLogout}>Logout</button>
       </div>
 
