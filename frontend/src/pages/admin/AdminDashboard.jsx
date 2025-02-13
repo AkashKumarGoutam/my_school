@@ -25,7 +25,7 @@ function AdminDashboard() {
     .then(res=>{
       console.log(res.data.status)
       if(res.data.status){
-        navigate("/admin_login")
+        navigate("/dashboard")
       }
     })
     .catch(err=>{
@@ -33,10 +33,10 @@ function AdminDashboard() {
     })
   }
   return (
-    <div className="bg-gray-900 py-48">
+    <div className="bg-neutral-900 py-24">
       <div className='flex items-center justify-end pr-20'>
          <h1 className='text-white text-lg font-semibold px-6'>USER :- {admin}</h1>
-        <button className='text-2xl bg-white font-semibold w-28 h-10 flex items-center justify-center rounded-lg' onClick={handleLogout}>Logout</button>
+        <button className='text-2xl bg-yellow-400 font-semibold w-28 h-10 flex items-center justify-center rounded-lg' onClick={handleLogout}>Logout</button>
       </div>
 
       <div className='text-white font-semibold flex flex-col justify-center items-center'>
@@ -44,24 +44,31 @@ function AdminDashboard() {
       <h1 className='text-md underline'> All Data here</h1>
       </div>
        <div className="flex justify-center gap-10 py-20">
+       <Link
+          to="/admin_dashboard/admin_higherAuthorityView"
+          className="px-6 py-6 shadow rounded-xl bg-yellow-400 text-2xl font-semibold hover:shadow-lg hover:shadow-gray-100 transition duration-300"
+        >
+          Higher Authority
+        </Link>
         <Link
           to="/admin_dashboard/admin_principalView"
-          className="px-6 py-2 shadow rounded-xl bg-white text-2xl font-semibold"
+          className="px-6 py-6 shadow rounded-xl bg-yellow-400 text-2xl font-semibold hover:shadow-lg hover:shadow-gray-100 transition duration-300"
         >
           Principal
         </Link>
         <Link
           to="/admin_dashboard/admin_teacherView"
-          className="px-6 py-2 shadow rounded-xl bg-white text-2xl font-semibold"
+          className="px-6 py-6 shadow rounded-xl bg-yellow-400 text-2xl font-semibold hover:shadow-lg hover:shadow-gray-100 transition duration-300"
         >
           Teacher
         </Link>
         <Link
           to="/admin_dashboard/admin_studentView"
-          className="px-6 py-2 shadow rounded-xl bg-white text-2xl font-semibold"
+          className="px-6 py-6 shadow rounded-xl bg-yellow-400 text-2xl font-semibold hover:shadow-lg hover:shadow-gray-100 transition duration-300"
         >
           Student
         </Link>
+        
       </div>
     </div>
   )

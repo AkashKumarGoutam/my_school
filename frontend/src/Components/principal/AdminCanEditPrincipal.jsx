@@ -38,9 +38,9 @@ function AdminCanEditPrincipal() {
     
     
   return (
-    <div className="bg-gray-900">
+    <div className="bg-neutral-900">
       <div className="flex justify-center items-center py-32">
-        <div className="bg-gray-200 rounded-lg ">
+        <div className="bg-gray-900 text-gray-200 rounded-lg ">
           <h1 className="text-xl font-semibold flex justify-center underline py-2 pb-6">
             Edit Principal Details
           </h1>
@@ -51,7 +51,7 @@ function AdminCanEditPrincipal() {
                 <input
                   type="text"
                   placeholder="name"
-                  className=" rounded-lg px-2 py-1"
+                  className=" rounded-lg px-2 py-1 text-black"
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
@@ -63,7 +63,7 @@ function AdminCanEditPrincipal() {
                 <input
                   type="email"
                   placeholder="email"
-                  className=" rounded-lg px-2 py-1"
+                  className=" rounded-lg px-2 py-1 text-black"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -75,7 +75,7 @@ function AdminCanEditPrincipal() {
                 <input
                   type="password"
                   placeholder="password"
-                  className=" rounded-lg px-2 py-1"
+                  className=" rounded-lg px-2 py-1 text-black"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
@@ -87,7 +87,7 @@ function AdminCanEditPrincipal() {
                 <input
                   type="number"
                   placeholder="age"
-                  className=" rounded-lg px-2 py-1"
+                  className=" rounded-lg px-2 py-1 text-black"
                   value={age}
                   onChange={(e) => {
                     setAge(e.target.value);
@@ -99,7 +99,7 @@ function AdminCanEditPrincipal() {
                 <input
                   type="number"
                   placeholder="Mob number"
-                  className=" rounded-lg px-2 py-1"
+                  className="border text-black rounded-lg px-2 py-1 text-black"
                   value={number}
                   onChange={(e) => {
                     setNumber(e.target.value);
@@ -107,7 +107,7 @@ function AdminCanEditPrincipal() {
                 />
               </div>
               <div className="flex justify-center py-4">
-                <button className="text-lg bg-blue-800 text-white px-4 py-1 rounded-lg">
+                <button className="text-lg bg-yellow-500 text-black px-4 py-1 rounded-lg">
                   Submit
                 </button>
               </div>

@@ -31,9 +31,9 @@ function PrincipalTeacherView() {
       }
     }
   return (
-    <div className='bg-gray-900'>
+    <div className='bg-gray-900 px-12'>
     <div>
-      <h1 className='text-4xl font-semibold text-white  flex justify-center underline pt-8'>Teacher</h1>
+      <h1 className='text-4xl font-semibold text-white pt-28 flex justify-center underline'>Teacher</h1>
     </div>
     <div>
       <div className="container mx-auto py-8 relative overflow-x-auto">

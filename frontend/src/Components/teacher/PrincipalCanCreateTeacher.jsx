@@ -26,7 +26,7 @@ function PrincipalCanCreateTeacher() {
     <div className="bg-gray-900">
     <div className="flex justify-center items-center py-32">
     <div className="bg-gray-200 rounded-lg ">
-      <h1 className="text-xl font-semibold flex justify-center underline py-2 pb-6">Add New Teracher</h1>
+      <h1 className="text-xl font-semibold flex justify-center underline py-2 pb-6">Add New Teacher</h1>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="flex justify-center items-center gap-6 px-10 py-4">

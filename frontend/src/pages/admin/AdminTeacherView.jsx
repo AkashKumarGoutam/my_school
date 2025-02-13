@@ -34,7 +34,7 @@ function AdminTeacherView() {
 
 
   return (
-    <div className='bg-gray-900'>
+    <div className='bg-gray-900 pt-12 px-12'>
       <div>
         <h1 className='text-4xl font-semibold text-white  flex justify-center underline pt-8'>Teacher</h1>
       </div>
@@ -73,7 +73,7 @@ function AdminTeacherView() {
                 </th>
                 <td className="px-6 py-4">{item.email}</td>
                 <td className="px-6 py-4"><Link to={`/admin_dashboard/admin_teacherView/edit_teacher/${item._id}`} className="bg-blue-600 text-white px-4 py-2 rounded-lg" >Edit</Link></td>
-                <td className="px-6 py-4"><button className="bg-blue-600 text-white px-4 py-2 rounded-lg" onClick={(e)=>handleDelete(item._id)}> Delete</button></td>
+                <td className="px-6 py-4"><button className="bg-red-600 hover:bg-red-400 text-white transition duration-300 px-4 py-2 rounded-lg" onClick={(e)=>handleDelete(item._id)}> Delete</button></td>
               </tr>
               ))}
             </tbody>

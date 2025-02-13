@@ -33,6 +33,9 @@ import TeacherCAnEditStudent from './Components/student/TeacherCAnEditStudent'
 import TeacherProtectedRoutes from './Components/protected_routes/TeacherProtectedRoutes'
 import StudentDashboard from './pages/student/StudentDashboard'
 import StudentCanEditOwn from './Components/student/StudentCanEditOwn'
+import AdminHigherAuthorityView from './pages/admin/AdminHigherAuthorityView'
+import AddHigherAuthorityName from './Components/HigherAuthorityOpertionByAdmin/AddHigherAuthorityName'
+import EditHigherAuthorityName from './Components/HigherAuthorityOpertionByAdmin/EditHigherAuthorityName'
 
 function App() {
 
@@ -60,7 +63,13 @@ function App() {
             <Route path='/admin_dashboard/admin_principalView' element={<AdminProtectedRoutes><AdminPrincipalView/></AdminProtectedRoutes>}/>
             <Route path='/admin_dashboard/admin_teacherView' element={<AdminProtectedRoutes><AdminTeacherView/></AdminProtectedRoutes>}/>
             <Route path='/admin_dashboard/admin_studentView' element={<AdminProtectedRoutes><AdminStudentView/></AdminProtectedRoutes>}/>
+            <Route path='/admin_dashboard/admin_higherAuthorityView' element={<AdminProtectedRoutes><AdminHigherAuthorityView/></AdminProtectedRoutes>}/>
             {/* //////////////////////////// */}
+
+                      {/* Higher Authority Name Operation */}
+                      <Route path='/admin_dashboard/admin_higherAuthorityView/add_higherAuthorityName' element={<AdminProtectedRoutes><AddHigherAuthorityName/></AdminProtectedRoutes>}/>
+                      <Route path='/admin_dashboard/admin_higherAuthorityView/edit_higherAuthorityName/:id' element={<AdminProtectedRoutes><EditHigherAuthorityName/></AdminProtectedRoutes>}/>
+                      {/* ................................ */}
                                     {/* principal operation */}
                            <Route path='/admin_dashboard/admin_principalView/create_principal' element={<AdminProtectedRoutes><AdminCanCreatePrincipal/></AdminProtectedRoutes>}/>
                            <Route path='/admin_dashboard/admin_principalView/edit_principal/:id' element={<AdminProtectedRoutes><AdminCanEditPrincipal/></AdminProtectedRoutes>}/>

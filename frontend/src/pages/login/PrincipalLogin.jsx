@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function PrincipalLogin() {
@@ -26,10 +26,10 @@ function PrincipalLogin() {
   
   return (
     <div>
-      <div className="p-20 bg-gray-900 h-screen">
-        <div className="flex justify-center items-center p-10">
+      <div className="flex justify-center pt-24 bg-neutral-900">
+        <div className="flex justify-center items-center">
           <form
-            className="flex flex-col border-2 p-10 bg-gray-200 rounded-xl"
+            className="flex flex-col border border-gray-500 text-gray-300 p-10 px-20 bg-gray-900 rounded-xl"
             onSubmit={handleSubmit}
           >
             <h1 className="text-2xl font-semibold flex justify-center pb-6 items-center">
@@ -41,7 +41,7 @@ function PrincipalLogin() {
             </label>
             <input
               type="email"
-              className="border-2 px-6 py-1 rounded-lg"
+              className="border-2 px-6 py-1 rounded-lg text-black"
               autoComplete="off"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -52,7 +52,7 @@ function PrincipalLogin() {
             </label>
             <input
               type="password"
-              className="border-2 px-6 py-1 rounded-lg"
+              className="border-2 px-6 py-1 rounded-lg text-black"
               placeholder="********"
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -61,11 +61,13 @@ function PrincipalLogin() {
             <div className="py-6">
               <button
                 type="submit"
-                className="bg-blue-600 text-white w-full rounded-lg py-1"
-              >
+                className="bg-yellow-500 text-black w-full rounded-lg py-1"
+                >
                 Sign In
               </button>
-              
+              <div className='flex justify-center pt-8'>
+                <Link to="/" className='bg-yellow-500 p-2 text-black rounded-lg'>Go to home</Link>
+                </div> 
             </div>
           </form>
         </div>
