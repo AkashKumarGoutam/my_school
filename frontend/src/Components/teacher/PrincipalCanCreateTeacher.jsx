@@ -17,7 +17,7 @@ function PrincipalCanCreateTeacher() {
       .then(res=>{
         console.log(res)
         alert("add successfully")
-        navigate("/admin_dashboard/admin_teacherView")
+        navigate("/principal_dashboard/principal_teacher_view")
       }).catch(err=>{
         console.log(err)
       })

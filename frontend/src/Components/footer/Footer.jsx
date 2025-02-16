@@ -69,7 +69,7 @@ function Footer() {
       {/* <!-- Divider --> */}
       <div class="border-t border-neutral-800 pt-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-400 text-sm">© 2024 MAG School. All rights reserved.</p>
+          <p class="text-gray-400 text-sm">© 2025 MAG School. All rights reserved.</p>
           <div class="flex space-x-6 mt-4 md:mt-0">
             <a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Privacy Policy</a>
             <a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Terms of Service</a>

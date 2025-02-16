@@ -8,6 +8,18 @@ const assignClassesSchema = new mongoose.Schema({
     teachers : {
         type:String,
         required :true
+    },
+    subject : {
+        type:String,
+        required :true
+    },
+    classroom : {
+        type:String,
+        required :true
+    },
+    timing : {
+        type:String,
+        required :true
     }
 })
 

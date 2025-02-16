@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -176,7 +175,7 @@ function Home() {
           </div>
           <h3 class="text-2xl font-semibold mb-4">Primary Section</h3>
           <ul class="space-y-3 text-gray-300">
-            <li>Grades 1-5</li>
+            <li>Grades 1-9</li>
             <li>Foundation Learning</li>
             <li>Activity Based Learning</li>
             <li>Personal Development</li>
@@ -191,9 +190,9 @@ function Home() {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-semibold mb-4">Middle Section</h3>
+          <h3 class="text-2xl font-semibold mb-4">Secondary Section</h3>
           <ul class="space-y-3 text-gray-300">
-            <li>Grades 6-8</li>
+            <li>Grades 9-12</li>
             <li>Advanced Concepts</li>
             <li>Project Based Learning</li>
             <li>Skill Development</li>
@@ -208,19 +207,19 @@ function Home() {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-semibold mb-4">Secondary Section</h3>
+          <h3 class="text-2xl font-semibold mb-4">Higher Courses Section</h3>
           <ul class="space-y-3 text-gray-300">
-            <li>Grades 9-12</li>
+            <li>Graduation & Master</li>
             <li>Specialized Streams</li>
             <li>Career Guidance</li>
-            <li>College Preparation</li>
+            <li>Good Placement</li>
           </ul>
           {/* <button class="mt-6 bg-yellow-400 text-neutral-900 px-6 py-2 rounded-full hover:bg-yellow-500 transition-colors">View Schedule</button> */}
         </div>
       </div>
 
       {/* <!-- Time Table Preview --> */}
-      <div class="mt-16 bg-neutral-800 rounded-xl p-8 animate__animated animate__fadeInUp">
+      {/* <div class="mt-16 bg-neutral-800 rounded-xl p-8 animate__animated animate__fadeInUp">
         <h3 class="text-2xl font-semibold mb-6">Current Time Table</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-left">
@@ -262,7 +261,7 @@ function Home() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> */}
     </div>
   </section>
 
@@ -402,7 +401,7 @@ function Home() {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
               </svg>
             </div>
-            <h4 class="text-xl font-semibold mb-2">Dr. John Smith</h4>
+            <h4 class="text-xl font-semibold mb-2">Dr. Akash Kumar Goutam</h4>
             <p class="text-yellow-400 mb-4">Principal</p>
             <p class="text-gray-400 text-sm mb-4">Ph.D. in Education Management</p>
             <div class="flex justify-center space-x-4">
@@ -422,7 +421,7 @@ function Home() {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
               </svg>
             </div>
-            <h4 class="text-xl font-semibold mb-2">Dr. Sarah Johnson</h4>
+            <h4 class="text-xl font-semibold mb-2">Dr. Mansi Gautam</h4>
             <p class="text-yellow-400 mb-4">Vice Principal</p>
             <p class="text-gray-400 text-sm mb-4">M.Ed. in Educational Leadership</p>
             <div class="flex justify-center space-x-4">
@@ -442,7 +441,7 @@ function Home() {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
               </svg>
             </div>
-            <h4 class="text-xl font-semibold mb-2">Prof. Michael Brown</h4>
+            <h4 class="text-xl font-semibold mb-2">Prof. Manvendra Pratap Singh</h4>
             <p class="text-yellow-400 mb-4">Head of Academics</p>
             <p class="text-gray-400 text-sm mb-4">Ph.D. in Curriculum Development</p>
             <div class="flex justify-center space-x-4">
@@ -741,33 +740,38 @@ function Home() {
         {/* <!-- Gallery Items --> */}
         <div class="group relative overflow-hidden rounded-xl bg-neutral-800 h-64 animate__animated animate__fadeInUp">
           <div class="absolute inset-0 flex items-center justify-center">
-            <svg class="w-24 h-24 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* <svg class="w-24 h-24 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
+            </svg> */}
+            <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D"/>
           </div>
-          <div class="absolute inset-0 bg-yellow-400 bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <div class="absolute inset-0 bg-gray-400 bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
             <p class="text-neutral-900 font-semibold">Annual Day Celebration</p>
           </div>
         </div>
 
         <div class="group relative overflow-hidden rounded-xl bg-neutral-800 h-64 animate__animated animate__fadeInUp" >
           <div class="absolute inset-0 flex items-center justify-center">
-            <svg class="w-24 h-24 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* <svg class="w-24 h-24 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
+            </svg> */}
+                        <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D"/>
+
           </div>
-          <div class="absolute inset-0 bg-yellow-400 bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <div class="absolute inset-0 bg-gray-400 bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
             <p class="text-neutral-900 font-semibold">Science Exhibition</p>
           </div>
         </div>
 
         <div class="group relative overflow-hidden rounded-xl bg-neutral-800 h-64 animate__animated animate__fadeInUp" >
           <div class="absolute inset-0 flex items-center justify-center">
-            <svg class="w-24 h-24 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* <svg class="w-24 h-24 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
+            </svg> */}
+                        <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D"/>
+
           </div>
-          <div class="absolute inset-0 bg-yellow-400 bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <div class="absolute inset-0 bg-gray-400 bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
             <p class="text-neutral-900 font-semibold">Sports Day</p>
           </div>
         </div>
@@ -813,7 +817,7 @@ function Home() {
                 </div>
                 <div>
                   <h4 class="text-white font-semibold">Address</h4>
-                  <p class="text-gray-400">123 Education Street, Learning City, ST 12345</p>
+                  <p class="text-gray-400">Alpha 2 Main Market , Greater Noida , 201310</p>
                 </div>
               </div>
 
@@ -837,7 +841,7 @@ function Home() {
                 </div>
                 <div>
                   <h4 class="text-white font-semibold">Phone</h4>
-                  <p class="text-gray-400">+1 (123) 456-7890</p>
+                  <p class="text-gray-400">+91 700-483-4415</p>
                 </div>
               </div>
             </div>
@@ -893,8 +897,7 @@ function Home() {
       {/* <!-- Map --> */}
       <div class="mt-16 bg-neutral-800 rounded-xl p-4 h-[400px] animate__animated animate__fadeIn">
         <div class="w-full h-full bg-neutral-700 rounded-lg flex items-center justify-center">
-          <p class="text-gray-400">Map Integration Goes Here</p>
-        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1759.585575603582!2d77.51892815706219!3d28.479667925792516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1739703807481!5m2!1sen!2sin" width="1200" height="350"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
       </div>
     </div>
   </section>

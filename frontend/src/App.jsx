@@ -36,6 +36,15 @@ import StudentCanEditOwn from './Components/student/StudentCanEditOwn'
 import AdminHigherAuthorityView from './pages/admin/AdminHigherAuthorityView'
 import AddHigherAuthorityName from './Components/HigherAuthorityOpertionByAdmin/AddHigherAuthorityName'
 import EditHigherAuthorityName from './Components/HigherAuthorityOpertionByAdmin/EditHigherAuthorityName'
+import PrincipalClassRoomView from './pages/principal/PrincipalClassRoomView'
+import PrincipalClassesView from './pages/principal/PrincipalClassesView'
+import PrincipalSubjectView from './pages/principal/PrincipalSubjectView'
+import AddClassroom from './Components/Classroom/AddClassroom'
+import EditClassroom from './Components/Classroom/EditClassroom'
+import AddClasses from './Components/Classes/AddClasses'
+import EditClasses from './Components/Classes/EditClasses'
+import AddSubject from './Components/Subject/AddSubject'
+import EditSubject from './Components/Subject/EditSubject'
 
 function App() {
 
@@ -83,6 +92,7 @@ function App() {
                            <Route path='/admin_dashboard/admin_studentView/create_student' element={<AdminProtectedRoutes><AdminCanCreateStudent/></AdminProtectedRoutes>}/>
                            <Route path='/admin_dashboard/admin_studentView/edit_student/:id' element={<AdminProtectedRoutes><AdminCanEditStudent/></AdminProtectedRoutes>}/>
                                      {/* //////////////////// */}
+
       {/* /////////////////// /////////////////////////////////////////////////////////////////////////*/}
 
 
@@ -94,6 +104,9 @@ function App() {
                                 {/* //////////principal Views////////////// */}
                  <Route path='/principal_dashboard/principal_teacher_view' element={<PrincipalProtectedRoutes><PrincipalTeacherView/></PrincipalProtectedRoutes>}/>
                  <Route path='/principal_dashboard/principal_student_view' element={<PrincipalProtectedRoutes><PrincipalStudentView/></PrincipalProtectedRoutes>}/>
+                 <Route path='/principal_dashboard/principal_classRoom_view' element={<PrincipalProtectedRoutes><PrincipalClassRoomView/></PrincipalProtectedRoutes>}/>
+                 <Route path='/principal_dashboard/principal_classes_view' element={<PrincipalProtectedRoutes><PrincipalClassesView/></PrincipalProtectedRoutes>}/>
+                 <Route path='/principal_dashboard/principal_subject_view' element={<PrincipalProtectedRoutes><PrincipalSubjectView/></PrincipalProtectedRoutes>}/>
                                 {/* //////////////////////////////////////// */}
                                               {/* ////teachers operation */}
                                   <Route  path='/principal_dashboard/principal_teacher_view/create_teacher' element={<PrincipalProtectedRoutes><PrincipalCanCreateTeacher/></PrincipalProtectedRoutes>}/>
@@ -103,6 +116,20 @@ function App() {
                                   <Route  path='/principal_dashboard/principal_student_view/create_student' element={<PrincipalProtectedRoutes><PrincipalCanCreateStudent/></PrincipalProtectedRoutes>}/>
                                   <Route  path='/principal_dashboard/principal_student_view/edit_student/:id' element={<PrincipalProtectedRoutes><PrincipalCanEditStudent/></PrincipalProtectedRoutes>}/>
                                               {/* /////////////////////// */}
+
+                                                    {/*//////////// Class Room operation ///////// */}
+                                  <Route  path='/principal_dashboard/principal_classroom/addClassroom' element={<PrincipalProtectedRoutes><AddClassroom/></PrincipalProtectedRoutes>}/>
+                                  <Route  path='/principal_dashboard/principal_classroom/editClassroom/:id' element={<PrincipalProtectedRoutes><EditClassroom/></PrincipalProtectedRoutes>}/>
+                                                    {/* ///////////////////////////////////////////// */}
+                                                    {/* /////////classes operation //////// */}
+                                  <Route  path='/principal_dashboard/principal_classes_view/add_class' element={<PrincipalProtectedRoutes><AddClasses/></PrincipalProtectedRoutes>}/>
+                                  <Route  path='/principal_dashboard/principal_classes_view/edit_class/:id' element={<PrincipalProtectedRoutes><EditClasses/></PrincipalProtectedRoutes>}/>
+                                                    {/* ///////////////////////////////// */}
+
+                                                    {/* ///////////subject operation //////////// */}
+                                  <Route  path='/principal_dashboard/principal_subject_view/add_subject' element={<PrincipalProtectedRoutes><AddSubject/></PrincipalProtectedRoutes>}/>
+                                  <Route  path='/principal_dashboard/principal_subject_view/edit_subject/:id' element={<PrincipalProtectedRoutes><EditSubject/></PrincipalProtectedRoutes>}/>
+                                                    {/* ////////////////////////////////////// */}
 
       {/* //////////////////////////////////////////////////////////////////////////////////////////// */}
 

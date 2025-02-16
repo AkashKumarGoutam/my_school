@@ -17,7 +17,7 @@ function PrincipalCanCreateStudent() {
         .then(res=>{
             console.log(res);          
             alert("add successfully")  
-            navigate("/admin_dashboard/admin_studentView")
+            navigate("/principal_dashboard/principal_student_view")
         }).catch(err=>{
             console.log(err);            
         })
@@ -51,7 +51,7 @@ function PrincipalCanCreateStudent() {
           </div>
           <div className="flex justify-center items-center gap-6 px-10 py-4">
             <label className="text-lg font-bold">Classes:-</label>
-            <input type="number" placeholder="Mob number" className=" rounded-lg px-2 py-1" onChange={(e)=>{setClasses(e.target.value)}}/>
+            <input type="text" placeholder="classes" className=" rounded-lg px-2 py-1" onChange={(e)=>{setClasses(e.target.value)}}/>
           </div>
           <div className="flex justify-center py-4">
               <button className="text-lg bg-blue-800 text-white px-4 py-1 rounded-lg">Submit</button>
